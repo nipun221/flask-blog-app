@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Simple Wall Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 1.5rem; background: #f5f5f5; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    a { text-decoration: none; color: #0366d6; }
+    .card { background: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .post-title { font-weight: 600; margin-bottom: .25rem; }
+    .post-meta { font-size: .8rem; color: #666; margin-bottom: .5rem; }
+    form { display: flex; flex-direction: column; gap: .5rem; }
+    input, textarea { padding: .5rem; border-radius: 4px; border: 1px solid #ccc; font: inherit; }
+    button { padding: .5rem .75rem; border-radius: 4px; border: none; background:#0366d6; color:white; cursor:pointer; font: inherit; }
+    nav a { margin-left: .5rem; }
+    .flash { padding: .5rem .75rem; border-radius: 4px; margin-bottom: .5rem; font-size: .9rem; }
+    .flash.error { background: #ffe5e5; color: #b00020; }
+    .flash.success { background: #e5ffe9; color: #006400; }
+  </style>
+</head>
+<body>
+<header>
+  <h1><a href="{{ url_for('index') }}">🧱 Simple Wall Blog</a></h1>
+  <nav>
+    {% if user %}
+      <span>Hi, {{ user.username }}!</span>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('signup') }}">Sign up</a>
+    {% endif %}
+  </nav>
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+</body>
+</html>

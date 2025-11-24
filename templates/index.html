@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if user %}
+  <div class="card">
+    <h2>Create a post</h2>
+    <form method="post" action="{{ url_for('create_post') }}">
+      <input type="text" name="title" placeholder="Title" required>
+      <textarea name="body" rows="3" placeholder="What's on your mind?" required></textarea>
+      <button type="submit">Post</button>
+    </form>
+  </div>
+{% else %}
+  <div class="card">
+    <p>Log in or sign up to create a post. Everyone shares the same wall.</p>
+  </div>
+{% endif %}
+
+<h2>Wall</h2>
+
+{% for post in posts %}
+  <div class="card">
+    <div class="post-title">{{ post.title }}</div>
+    <div class="post-meta">
+      by {{ post.author.username }}
+      on {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}
+    </div>
+    <div>{{ post.body|e }}</div>
+  </div>
+{% else %}
+  <p>No posts yet. Be the first!</p>
+{% endfor %}
+
+{% endblock %}
