@@ -1,8 +1,8 @@
-# 📘 DevOps Project Report: Automated CI/CD Pipeline for a 2-Tier Flask Blog Application on AWS
+# DevOps Project Report: Automated CI/CD Pipeline for a 2-Tier Flask Blog Application on AWS
 
-**Author:** Nipun Vats
-**Date:** November 2025
-**Video Demo:** https://youtu.be/1EkM6_5L7xc
+### Author: Nipun Vats
+### Date: November 2025
+### Video Demo: https://youtu.be/1EkM6_5L7xc
 
 ---
 
