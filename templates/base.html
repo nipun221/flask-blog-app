@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My Wall Blog</title>
+  <title>Simple Wall Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 1.5rem; background: #f5f5f5; }
@@ -22,7 +22,7 @@
 </head>
 <body>
 <header>
-  <h1><a href="{{ url_for('index') }}">🧱 My Wall Blog</a></h1>
+  <h1><a href="{{ url_for('index') }}">🧱 Simple Wall Blog</a></h1>
   <nav>
     {% if user %}
       <span>Hi, {{ user.username }}!</span>
